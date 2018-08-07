@@ -6,7 +6,7 @@ using Caliburn.Micro;
 namespace App2.Android
 {
     [Activity(
-        Label = "App2.Android",
+        Label = "ProductDelivery.Android",
         Icon = "@drawable/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,
