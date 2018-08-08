@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App2.ViewModels
+namespace ProductDelivery.ViewModels
 {
     public class MainViewModel : BaseScreen
     {
@@ -15,7 +15,17 @@ namespace App2.ViewModels
             DisplayName = "Welcome!";
             IntroLabel = "Hello World via Caliburn.Micro!";
             Name = "Umesh Kamble";
+            GetItemList();
         }
+
+        private void GetItemList()
+        {
+            DbContext db = new DbContext().CreateConnection();
+            db.SaveData();
+            ItemList = db.GetItems();
+        }
+
+        public IEnumerable<TodoItem> ItemList { get; set; }
 
         public string IntroLabel
         {

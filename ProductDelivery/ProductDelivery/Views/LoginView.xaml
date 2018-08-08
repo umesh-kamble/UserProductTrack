@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
-             x:Class="App2.Views.LoginView">
+             x:Class="ProductDelivery.Views.LoginView">
     <ContentPage.Content>
         <Grid Margin="16">
             <Grid.RowDefinitions>

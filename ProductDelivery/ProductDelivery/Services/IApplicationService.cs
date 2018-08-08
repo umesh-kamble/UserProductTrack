@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace App2.Services
+namespace ProductDelivery.Services
 {
     /// <summary>
     /// An application service is an in-memory service that is initialized with the application

@@ -1,14 +1,14 @@
-﻿using Caliburn.Micro;
+using Caliburn.Micro;
 using Caliburn.Micro.Xamarin.Forms;
 using System.Linq;
 using System.Reflection;
 using Xamarin.Forms;
-using App2.Services;
-using App2.Utils;
-using App2.ViewModels;
+using ProductDelivery.Services;
+using ProductDelivery.Utils;
+using ProductDelivery.ViewModels;
 using Xamarin.Essentials;
 
-namespace App2
+namespace ProductDelivery
 {
     public partial class App : FormsApplication
     {
@@ -28,9 +28,8 @@ namespace App2
                 //.PerRequest<MainViewModel>()
 
                 // register services
-                .Singleton<IEventAggregator, EventAggregator>()
-                ;
-
+                .Singleton<IEventAggregator, EventAggregator>();
+                
             // setup root page as a navigation page
             PrepareViewFirst();
             if (!container.HasHandler(typeof(LoginViewModel), null))
@@ -53,7 +52,7 @@ namespace App2
               .For<MainViewModel>()
               .Navigate(false);
             }
-           
+
         }
 
         protected override void PrepareViewFirst(NavigationPage navigationPage)
@@ -61,7 +60,7 @@ namespace App2
             _container.Instance<INavigationService>(new NavigationPageAdapter(navigationPage));
         }
 
-        
+
         protected override void OnStart()
         {
             // Handle when your app starts

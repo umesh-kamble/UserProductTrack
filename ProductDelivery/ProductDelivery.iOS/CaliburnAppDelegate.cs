@@ -2,8 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using ProductDelivery;
 
-namespace App2.iOS
+namespace ProductDelivery.iOS
 {
     class CaliburnAppDelegate : CaliburnApplicationDelegate
     {

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:App2"
-             x:Class="App2.Views.MainView"
+             x:Class="ProductDelivery.Views.MainView"
              Title="Hello">
 
     <StackLayout>
@@ -10,11 +10,26 @@
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
-        <StackLayout Orientation="Horizontal">
+        <!--<StackLayout Orientation="Horizontal">
 
+            <Label Text="Welcome to Xamarin" />
             <Label Text="Title " />
             <Label Text="{Binding Name}" VerticalOptions="Center" />
 
-        </StackLayout>
+        </StackLayout>-->
+
+        <ListView x:Name="listView" Margin="2" ItemsSource="{Binding ItemList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Image Source="check.png" IsVisible="{Binding Done}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
     </StackLayout>
 </ContentPage>

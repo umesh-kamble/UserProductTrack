@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
-namespace App2.ViewModels
+namespace ProductDelivery.ViewModels
 {
    public class LoginViewModel:BaseScreen
     {

@@ -9,9 +9,9 @@ using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Shared = App2;
+using Shared = ProductDelivery;
 
-namespace App2.UWP
+namespace ProductDelivery.UWP
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

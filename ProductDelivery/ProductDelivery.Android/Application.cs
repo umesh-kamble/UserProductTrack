@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace App2.Android
+namespace ProductDelivery.Droid
 {
 
     //You can specify additional application information in this attribute

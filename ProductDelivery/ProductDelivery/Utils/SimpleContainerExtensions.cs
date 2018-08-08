@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace App2.Utils
+namespace ProductDelivery.Utils
 {
     public static class SimpleContainerExtensions
     {
