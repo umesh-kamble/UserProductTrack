@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro.Xamarin.Forms;
+using ProductDelivery.DataContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,9 @@ namespace ProductDelivery.ViewModels
         #endregion
         public async void AuthenticateCommand()
         {
-            if(Username=="a" && Password == "a") {
+            Employee employee = new Employee { EmployeeName = Username, Password = this.Password };
+             var emp = new EmployeeDb().EmployeeExists(employee);
+            if (emp !=null) {
                 Preferences.Set("IsLogged", true);
                await _navigationService.NavigateToViewModelAsync(typeof(MainViewModel));
             }

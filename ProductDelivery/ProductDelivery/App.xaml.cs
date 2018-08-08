@@ -7,6 +7,7 @@ using ProductDelivery.Services;
 using ProductDelivery.Utils;
 using ProductDelivery.ViewModels;
 using Xamarin.Essentials;
+using ProductDelivery.DataContext;
 
 namespace ProductDelivery
 {
@@ -17,6 +18,8 @@ namespace ProductDelivery
         public App(SimpleContainer container)
         {
             InitializeComponent();
+
+            new EmployeeDb().SaveEmployee();
 
             this._container = container;
 

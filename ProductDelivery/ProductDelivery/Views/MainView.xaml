@@ -6,10 +6,6 @@
              Title="Hello">
 
     <StackLayout>
-        <Label Text="{Binding IntroLabel}" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
         <!--<StackLayout Orientation="Horizontal">
 
             <Label Text="Welcome to Xamarin" />
@@ -23,8 +19,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                            <Image Source="check.png" IsVisible="{Binding Done}" />
+                            <Label Text="{Binding EmployeeName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Image Source="check.png" IsVisible="{Binding Active}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

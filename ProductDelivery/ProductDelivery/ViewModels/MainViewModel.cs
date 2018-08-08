@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProductDelivery.DataContext;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,10 @@ namespace ProductDelivery.ViewModels
 
         private void GetItemList()
         {
-            DbContext db = new DbContext().CreateConnection();
-            db.SaveData();
-            ItemList = db.GetItems();
+            ItemList = new EmployeeDb().GetEmployList();
         }
 
-        public IEnumerable<TodoItem> ItemList { get; set; }
+        public IEnumerable<Employee> ItemList { get; set; }
 
         public string IntroLabel
         {
