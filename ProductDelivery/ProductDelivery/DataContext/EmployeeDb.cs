@@ -1,18 +1,17 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace ProductDelivery.DataContext
 {
-	public class EmployeeDb : DbContext
+	public class EmployeeDb 
 	{
-		public EmployeeDb()
-		{
-			CreateConnection();
-		}
+        protected static object locker = new object();
+        SQLiteConnection database = DbContext.Instance.DbConn;
 
-		public IEnumerable<Employee> GetEmployList()
+        public IEnumerable<Employee> GetEmployList()
 		{
 			lock (locker)
 			{
@@ -57,33 +56,6 @@ namespace ProductDelivery.DataContext
 			{
 				return database.Delete<Employee>(id);
 			}
-		}
-
-		public void SaveEmployee()
-		{
-			List<Employee> emplist = new List<Employee>
-			{
-				new Employee
-				{
-					EmployeeName = "Rehan",
-					Password = "123",
-					Active = true
-
-				},new Employee
-				{
-					EmployeeName = "Umesh",
-					Password = "123",
-					Active = true
-
-				},new Employee
-				{
-					EmployeeName = "Prasad",
-					Password = "123",
-					Active = false
-				}
-			}; 
-
-			SaveList(emplist);
 		}
 	}
 }

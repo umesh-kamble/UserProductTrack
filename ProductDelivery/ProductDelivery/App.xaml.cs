@@ -19,8 +19,6 @@ namespace ProductDelivery
         {
             InitializeComponent();
 
-            new EmployeeDb().SaveEmployee();
-
             this._container = container;
 
             // TODO: Register additional viewmodels and services
