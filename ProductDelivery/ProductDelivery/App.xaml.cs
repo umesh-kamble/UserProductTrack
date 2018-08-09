@@ -37,7 +37,8 @@ namespace ProductDelivery
             {
                 container
                     .PerRequest<LoginViewModel>()
-                    .PerRequest<MainViewModel>();
+                    .PerRequest<MainViewModel>()
+                    .PerRequest<SignUpViewModel>();
             }
             // navigate to main view
             var myValue = Preferences.Get("IsLogged", false);
