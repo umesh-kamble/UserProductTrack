@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+             xmlns:effects="clr-namespace:ProductDelivery.Effects"
+             x:Class="ProductDelivery.Views.SignUpView"
+             Title="Sign Up Page">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="ForgotPwdLabelStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource LittleSize}" />
+                <Setter Property="Margin"
+                        Value="0, 5, 5, 15" />
+            </Style>
+            <Style x:Key="SignInButtonStyle"
+                   TargetType="Button">
+                <Setter Property="HeightRequest"
+                        Value="54" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource LargeSize}" />
+            </Style>
+            <Style x:Key="HaveAccountLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="{StaticResource MidMediumSize}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            </Style>
+
+            <Style x:Key="SignUpLabelStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="{StaticResource MidMediumSize}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource BrightYellowColor}" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BackgroundColor="SkyBlue">
+            <Grid>
+                <Grid.Padding>
+                    <OnPlatform 
+                    x:TypeArguments="Thickness"
+                    iOS="40, 150, 40, 30"
+                    Android="40, 150, 40, 30"
+                    WinPhone="40"/>
+                </Grid.Padding>
+                <Grid.VerticalOptions>
+                    <OnPlatform x:TypeArguments="LayoutOptions"
+                    Android="FillAndExpand"
+                    iOS="FillAndExpand"
+                    WinPhone="Center"/>
+                </Grid.VerticalOptions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition>
+                        <RowDefinition.Height>
+                            <OnPlatform 
+                            x:TypeArguments="GridLength"
+                            iOS="40"
+                            Android="40"
+                            WinPhone="Auto"/>
+                        </RowDefinition.Height>
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0">
+                    <StackLayout.Spacing>
+                        <OnPlatform 
+                        x:TypeArguments="x:Double" 
+                        iOS="20" 
+                        WinPhone="20"/>
+                    </StackLayout.Spacing>
+                    <StackLayout.HorizontalOptions>
+                        <OnPlatform 
+                        x:TypeArguments="LayoutOptions"
+                        iOS="FillAndExpand"
+                        Android="FillAndExpand"
+                        WinPhone="Center"/>
+                    </StackLayout.HorizontalOptions>
+                    <Entry 
+                    x:Name="EntryUserName"
+                    Text="{Binding Username, Mode=TwoWay}"
+                    Placeholder="Username">
+                        <Entry.Style>
+                            <OnPlatform x:TypeArguments="Style"
+                                        iOS="{StaticResource EntryStyle}"
+                        Android="{StaticResource EntryStyle}"/>
+                        </Entry.Style>
+                    </Entry>
+                    <Entry 
+                    x:Name="EntryPassword"
+                   Text="{Binding Password, Mode=TwoWay}"
+                   Placeholder="Password"
+                   AutomationId="password"
+                   IsPassword="true">
+                        <Entry.Style>
+                            <OnPlatform 
+                            x:TypeArguments="Style"
+                            iOS="{StaticResource EntryStyle}"
+                            Android="{StaticResource EntryStyle}"/>
+                        </Entry.Style>
+                    </Entry>
+                    <Entry 
+                    x:Name="EntryRepeatPassword"
+                   Text="{Binding RepeatPassword, Mode=TwoWay}"
+                   Placeholder="RepeatPassword"
+                   AutomationId="RepeatPassword"
+                   IsPassword="true">
+                        <Entry.Style>
+                            <OnPlatform 
+                            x:TypeArguments="Style"
+                            iOS="{StaticResource EntryStyle}"
+                            Android="{StaticResource EntryStyle}"/>
+                        </Entry.Style>
+                    </Entry>
+                    <!-- Bindable Native Views Directly to XAML -->
+                    <Button x:Name="RegisterButton"
+                    cm:Message.Attach="RegisterCommand"
+                    Text="Register"
+                    AutomationId="Register"
+                    Style="{StaticResource SignInButtonStyle}">
+
+                    </Button>
+                </StackLayout>
+            </Grid>
+
+            <ActivityIndicator 
+            Color="{StaticResource WhiteColor}"
+            IsRunning="{Binding IsBusy}" 
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="0, 150, 0, 0">
+                <ActivityIndicator.WidthRequest>
+                    <OnPlatform 
+                    x:TypeArguments="x:Double" 
+                    iOS="100" 
+                    Android="100"
+                    WinPhone="400" />
+                </ActivityIndicator.WidthRequest>
+            </ActivityIndicator>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
