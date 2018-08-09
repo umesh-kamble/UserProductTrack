@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              xmlns:effects="clr-namespace:ProductDelivery.Effects"
-             x:Class="ProductDelivery.Views.LoginView"
-             Title="Login">
+             x:Class="ProductDelivery.Views.SignUpView"
+             Title="Sign Up Page">
     <ContentPage.Resources>
         <ResourceDictionary>
 
@@ -95,14 +95,6 @@
                                         iOS="{StaticResource EntryStyle}"
                         Android="{StaticResource EntryStyle}"/>
                         </Entry.Style>
-                        <!--<Entry.Triggers>
-                            <DataTrigger TargetType="Entry" 
-                         Binding="{Binding Source={x:Reference EntryUserName},
-                                           Path=Text.Length}"
-                         Value="0">
-                                <Setter Property="effects:LineColorEffect.LineColor" Value="{StaticResource ErrorColor}" />
-                            </DataTrigger>
-                        </Entry.Triggers>-->
                     </Entry>
                     <Entry 
                     x:Name="EntryPassword"
@@ -117,41 +109,27 @@
                             Android="{StaticResource EntryStyle}"/>
                         </Entry.Style>
                     </Entry>
+                    <Entry 
+                    x:Name="EntryRepeatPassword"
+                   Text="{Binding RepeatPassword, Mode=TwoWay}"
+                   Placeholder="RepeatPassword"
+                   AutomationId="RepeatPassword"
+                   IsPassword="true">
+                        <Entry.Style>
+                            <OnPlatform 
+                            x:TypeArguments="Style"
+                            iOS="{StaticResource EntryStyle}"
+                            Android="{StaticResource EntryStyle}"/>
+                        </Entry.Style>
+                    </Entry>
                     <!-- Bindable Native Views Directly to XAML -->
-                    <Button x:Name="SignInButton"
-                    cm:Message.Attach="SignInCommand"
-                    Text="Sign in"
-                    AutomationId="signin"
+                    <Button x:Name="RegisterButton"
+                    cm:Message.Attach="RegisterCommand"
+                    Text="Register"
+                    AutomationId="Register"
                     Style="{StaticResource SignInButtonStyle}">
 
                     </Button>
-                </StackLayout>
-                <StackLayout 
-                Grid.Row="1"
-                Orientation="Horizontal"
-                HorizontalOptions="Center">
-                    <StackLayout.Margin>
-                        <OnPlatform 
-                        x:TypeArguments="Thickness"
-                        iOS="0"
-                        Android="0"
-                        WinPhone="0,140,0,0"/>
-                    </StackLayout.Margin>
-                    <Label  
-                    Text="Don't have an account?"
-                    VerticalOptions="Center"
-                    Style="{StaticResource HaveAccountLabelStyle}" />
-                    <Grid
-                    HeightRequest="40">
-                        <Grid.GestureRecognizers>
-                            <TapGestureRecognizer  Command="{Binding GoToSignUpCommand}" 
-                                      NumberOfTapsRequired="1" />
-                        </Grid.GestureRecognizers>
-                        <Label 
-                        Text="Sign up"
-                        VerticalOptions="Center"
-                        Style="{StaticResource SignUpLabelStyle}"/>
-                    </Grid>
                 </StackLayout>
             </Grid>
 
