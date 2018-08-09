@@ -17,8 +17,9 @@ namespace ProductDelivery
 		private static DbContext instance;
 		public static DbContext Instance
 		{
-			get {
-				if(instance ==null)
+			get
+			{
+				if (instance == null)
 				{
 					instance = new DbContext();
 				}
@@ -58,7 +59,7 @@ namespace ProductDelivery
 			return cmd.ExecuteScalar<string>() != null;
 		}
 
-		public int Save <T> (T data)
+		public int Save<T>(T data)
 		{
 			lock (locker)
 			{
@@ -74,9 +75,17 @@ namespace ProductDelivery
 			}
 		}
 
+		public List<T> GetList<T>() where T : new()
+		{
+			lock (locker)
+			{
+				return DbConn.Table<T>().ToList<T>();
+			}
+		}
+
 		public void InsertMockData()
 		{
-			List<Employee> emplist = new List<Employee>
+			List<Employee> empList = new List<Employee>
 			{
 				new Employee
 				{
@@ -98,7 +107,33 @@ namespace ProductDelivery
 				}
 			};
 
-			SaveList(emplist);
+			List<Product> productList = new List<Product>
+			{
+				new Product{ Id =1, ProductName="Honor 7A (Gold, 32 GB)  (3 GB RAM)", ProductType="Mobile (Electronic)"},
+				new Product{ Id =2, ProductName="Peter England University Men's Printed Casual Spread Shirt", ProductType="Clothing"},
+				new Product{ Id =3, ProductName="Philips 8.5 W Round B22 LED Bulb ", ProductType="LED Bulb (Electronic)"}
+			};
+
+			List<Customer> customerList = new List<Customer>
+			{
+				new Customer{ Id =1, CustomerName ="Prasad Raghorte", Address="Jai MahaKali Chawk Nagpur", MobileNo =9665603404, AlternateNo=00},
+				new Customer{ Id =2,CustomerName ="Parvez", Address="Muslim Ground Mominpura Nagpur", MobileNo =9021362236, AlternateNo=00},
+				new Customer{ Id =3,CustomerName ="Kamble", Address="Near Jyanti Mention Manish Nagar Nagpur", MobileNo =9665603404, AlternateNo=00}
+			};
+
+			List<Delivery> deliveryList = new List<Delivery>
+			{
+				new Delivery{ CustomerId =1, ClientName ="Prasad Raghorte", Address="Jai MahaKali Chawk Nagpur", ProductId=1 },
+				new Delivery{ CustomerId =2, ClientName ="Parvez", Address="Muslim Ground Mominpura Nagpur", ProductId=2},
+				new Delivery{ CustomerId =3, ClientName ="Kamble", Address="Near Jyanti Mention Manish Nagar Nagpur", ProductId=3},
+			};
+
+
+
+			SaveList(empList);
+			SaveList(productList);
+			SaveList(customerList);
+			SaveList(deliveryList);
 		}
 	}
 }

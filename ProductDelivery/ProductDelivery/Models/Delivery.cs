@@ -37,8 +37,10 @@ namespace ProductDelivery.Models
 
 		public string EmployeeId { get; set; }
 
-		public string CustomerId { get; set; }
+		public Int32 CustomerId { get; set; }
 
-		public string ProductId { get; set; }
+		public Int32 ProductId { get; set; }
+        
+        public string Address { get; set; }
 	}
 }

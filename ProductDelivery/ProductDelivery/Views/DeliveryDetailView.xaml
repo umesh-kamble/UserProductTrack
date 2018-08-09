@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProductDelivery.Views.DeliveryDetailView"
+             xmlns:local="clr-namespace:ProductDelivery"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"            
+             >
+
+    <ListView x:Name="listView" Margin="2" ItemsSource="{Binding DeliveryList}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding ClientName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                        <Label Text="{Binding Address}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                        
+                        <Image Source="check.png" IsVisible="{Binding Active}" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</ContentPage>

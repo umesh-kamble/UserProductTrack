@@ -37,6 +37,7 @@ namespace ProductDelivery
             {
                 container
                     .PerRequest<LoginViewModel>()
+                    .PerRequest<DeliveryDetailViewModel>()
                     .PerRequest<MainViewModel>();
             }
             // navigate to main view
